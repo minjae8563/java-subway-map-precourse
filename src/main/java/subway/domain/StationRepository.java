@@ -12,11 +12,16 @@ public class StationRepository {
         return Collections.unmodifiableList(stations);
     }
 
-    public static void addStation(Station station) {
+    public void addStation(Station station) {
         stations.add(station);
     }
 
-    public static boolean deleteStation(String name) {
+    // 하나라도 삭제가 된다면 true, 하나도 삭제가 안됐다면 false
+    public boolean deleteStation(String name) {
         return stations.removeIf(station -> Objects.equals(station.getName(), name));
+    }
+
+    public List<Station> getStations() {
+        return stations;
     }
 }

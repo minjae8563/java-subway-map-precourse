@@ -12,11 +12,16 @@ public class LineRepository {
         return Collections.unmodifiableList(lines);
     }
 
-    public static void addLine(Line line) {
+    public void addLine(Line line) {
         lines.add(line);
     }
 
-    public static boolean deleteLineByName(String name) {
+    // 하나라도 삭제가 된다면 true, 하나도 삭제가 안됐다면 false
+    public boolean deleteLineByName(String name) {
         return lines.removeIf(line -> Objects.equals(line.getName(), name));
+    }
+
+    public List<Line> getLines() {
+        return lines;
     }
 }
